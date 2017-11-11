@@ -24,20 +24,19 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.todo-container {
+.post-container {
   padding: 12px 0;
 }
 
-
-.todo {
-  padding: 6px 0;
-}
-
-.todo-input {
+.post-input {
   border-radius: 3px;
   border: 1px solid #eee;
   padding: 4px 6px;

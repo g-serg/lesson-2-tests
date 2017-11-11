@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsPost from './NewsPost';
+import './App.css';
 
 let id = 0;
 
@@ -20,7 +21,7 @@ class App extends Component {
   handleKeyDown = event => {
     if (event.keyCode === 13) {
       const { newsInput, news } = this.state;
-      const NewsPost = { text: newsInput, id: getId() };
+      const NewsPost = { text: newsInput, key: getId() };
       this.setState({ newsInput: '', news: [...news, NewsPost] });
     }
   };
@@ -28,14 +29,18 @@ class App extends Component {
   render() {
     const { newsInput, news } = this.state;
     return (
-      <div>
+      <div className="App">
         <input
+          className="post-input"
+          placeholder="Какие новости ?"
           value={newsInput}
           type="text"
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
         />
-        <div className="App">{news.map(() => <NewsPost />)}</div>
+        <div className="post-container">
+          {news.map(({ text, key }) => <NewsPost key={key} text={text} />)}
+        </div>
       </div>
     );
   }
